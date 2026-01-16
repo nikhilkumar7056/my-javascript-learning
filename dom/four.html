@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom| creating elements and attribute with js</title>
+</head>
+<body style="background-color: black;color: white;">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+</body>
+<script>
+    function addlanguage(addlang) {
+        const li = document.createElement('li');
+        li.innerHTML = `${addlang}` // innnerHTML => trevese all the node in the parent element and then add element
+        document.querySelector('.language').appendChild(li)
+    }
+
+    addlanguage("python")
+    addlanguage("java")
+
+    function addOptiLang(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName)) // it is alternative optimal way to insert an element in the parent element no treversing in the parent node
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLang('golang')
+
+    // Editing element
+
+    const secodlang = document.querySelector('li:nth-child(2)'); //selecting second element of list
+   // secodlang.innerHTML = "mojo" //easy but not optimal solution
+    const newli = document.createElement('li') // creating new li element
+    newli.textContent = "mojo" //adding text in new li element
+    secodlang.replaceWith(newli) //replace value of python to mojo
+   
+    const firstlang = document.querySelector("li:first-child")
+    // const li2 = document.createElement('li')
+    // li2.textContent = "typescript"
+    // firstlang.replaceWith(li2)
+    firstlang.outerHTML = '<li>typescript</li>'
+
+// remove
+     const lastlang = document.querySelector("li:last-child");
+     lastlang.remove()
+</script>
+</html>
