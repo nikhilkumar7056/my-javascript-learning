@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // there are some event which invock at a specific activity
+    /* about eventListener to study =>{
+    type, timestamp, defaultPrevented
+    target, toElement, srcSlement, currentTarget,
+    clientX, clientY, screenX, screenY
+    altkey, ctrlkey, shiftkey, keyCode
+    }*/
+    // document.getElementById('owl').onclick = function(){ // onclick has some problem and has not that much information so use event listeners. they give propagation ability
+    //     alert('owl clicked')
+    // }
+    //attachEvent()
+    //jQuery - on
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     // console.log(e)
+    //     // alert('owl again clicked')
+    // },false //event propagation
+    // )
+
+    /* event propagation =>{
+    there is two context of event propagation, 1 is event bubbling and 
+    2 is event capturing. mostly used default which is false as event bubbling
+    event propagation how the event will execute when i add an event in parent-child node
+    if we use event bubble the execution of an event is child to parent
+    for ex we have two event one is parent image and other is child owl 
+    in bubble when we perform child event than first child is execute
+    than parent or in capturing first parent will execute and than 
+    child execute. for bubble we use false or it is default 
+    for capturing we use true
+    }*/
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("image is clicked")
+    // },false)
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl is clicked")
+    //     e.stopPropagation() // stop propagation
+    // },false)
+    
+    //  document.getElementById('google').addEventListener('click', function(e){
+    //     console.log("google clicked")
+    //     e.preventDefault()
+    //  })
+    
+    document.getElementById('images').addEventListener('click', function(e){
+        // console.log(e.target.parentNode); // acces parent node of an event use parentNode and target give the html of that event
+
+        // let removeIt = e.target.parentNode
+        // removeIt.remove() // to remove an event basic approch
+        // removeIt.parentNode.removeChild(removeIt);
+        // we are selecting all the list than is we click on the list all list is remove so we use
+
+        console.log(e.target.tagName); // give tag name of event
+
+        if(e.target.tagName === 'IMG'){ //specify that only image is remove
+            console.log(e.target.id)
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+
+        
+    })
+
+</script>
+</html>
