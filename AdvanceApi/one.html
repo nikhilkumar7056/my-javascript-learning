@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fram{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fram">
+    <img src="" alt="hiteshchoudhary">
+    <h2>Number of followers<h2>
+    </div>
+</body>
+<script>
+    const Fram = document.getElementsByClassName('fram')
+    const h2 = document.querySelector('h2')
+    const imag = document.querySelector('img')
+    const requestURL = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET',requestURL)
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState)
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText)
+            const follower = data.followers
+            console.log(data)
+            const IMG = data.avatar_url
+            imag.src = IMG
+            h2.innerHTML = `Number of Followers is ${follower}`
+        }
+    }
+    xhr.send()
+
+    // console.log(xml.readyState)
+</script>
+</html>

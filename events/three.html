@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=  , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>study javascript</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+    // const stopInternal = setInterval(() => {
+    //     console.log("hello nikhil",Date.now())
+    // }, 2000);
+    // const sayDate = (str) =>{
+    //     console.log("Nikhil",str,Date.now());
+    // }
+
+    // setInterval(sayDate,1000,"hi")
+
+    const startbtn = document.querySelector('#start')
+    const stopbtn = document.querySelector('#stop')
+    startbtn.innerHTML = "now start"
+    stopbtn.innerHTML = "stop now"
+
+    let intervalid = null
+
+    const setInter = function() {
+         intervalid = setInterval(function(){
+            console.log("helloNikhil")
+        },2000)
+    }
+
+    const stopInt = function(){
+        clearInterval(intervalid)
+    }
+    startbtn.addEventListener('click', setInter)
+
+    stopbtn.addEventListener('click', stopInt)
+
+</script>
+</html>

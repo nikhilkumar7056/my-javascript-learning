@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async project</title>
+</head>
+<body>
+    <h1>hello coders</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    // set an time after function will execute
+    // setTimeout(function() {
+    //     console.log('NIkhil')
+    // }, 2000);
+
+    // const sayName = function(){
+    //     console.log("Nikhil, kasa ho")
+    // }
+    // setTimeout(sayName,4000)
+    // setTimeout(function(){
+    //     document.querySelector('h1').innerHTML = `hello nikhill `
+        
+    // },2000)
+
+    // stop timeout --------------------------------------------------------------------------------------------
+    // we use cleartimeout
+
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = `hello nikhillll..........`
+
+    }
+
+    const changingText = setTimeout(changeText,4000)
+
+    // clearTimeout(changingText)
+    // adding on an event
+
+    const stopTextChange = document.querySelector('#stop')
+    stopTextChange.addEventListener('click', function(){
+        clearTimeout(changingText)
+        console.log(`set timeout is stop`)
+    })
+
+
+</script>
+</html>
